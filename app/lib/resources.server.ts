@@ -5,11 +5,8 @@ import { processMarkdown } from "./md.server";
 import resourcesYamlFileContents from "../../data/resources.yaml?raw";
 import { slugify } from "~/ui/primitives/utils";
 import type { Octokit } from "octokit";
-import type {
-  ResourceYamlData} from "~/schemas/yaml-resource-schema";
-import {
-  yamlResourceSchema,
-} from "~/schemas/yaml-resource-schema";
+import type { ResourceYamlData } from "~/schemas/yaml-resource-schema";
+import { yamlResourceSchema } from "~/schemas/yaml-resource-schema";
 
 export type CacheContext = { octokit: Octokit };
 
