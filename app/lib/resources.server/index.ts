@@ -1,8 +1,8 @@
 import yaml from "yaml";
 import { LRUCache } from "lru-cache";
 import { env } from "~/env.server";
-import { processMarkdown } from "./md.server";
-import resourcesYamlFileContents from "../../data/resources.yaml?raw";
+import { processMarkdown } from "../md.server";
+import resourcesYamlFileContents from "../../../data/resources.yaml?raw";
 import { slugify } from "~/ui/primitives/utils";
 import type { Octokit } from "octokit";
 import type { ResourceYamlData } from "~/schemas/yaml-resource-schema";
@@ -12,9 +12,11 @@ export type CacheContext = { octokit: Octokit };
 
 const GITHUB_URL = "https://github.com";
 
-let _resources = yamlResourceSchema.parse(
-  yaml.parse(resourcesYamlFileContents),
-);
+export const fetchResourcesFromYaml = () => {
+  return yamlResourceSchema.parse(yaml.parse(resourcesYamlFileContents));
+};
+
+let _resources = fetchResourcesFromYaml();
 
 let starFormatter = new Intl.NumberFormat("en", { notation: "compact" });
 
