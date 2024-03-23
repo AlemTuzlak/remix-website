@@ -102,6 +102,7 @@
     "postcss-import": "^16.0.0",
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
+    "remix-development-tools": "^4.0.10",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.12",
